@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+
+    <!--Unidades de persistencia-->
+    <persistence-unit name="empleadosPU" transaction-type="RESOURCE_LOCAL">
+
+
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+
+        <!--Aquí habrá que añadir las clases creadas-->
+        <class>org.example.logica.Empleado</class>
+
+
+        <properties>
+            <!-- Especificar la URL de la base de datos MySQL y establece la zona horaria del servidor  -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/empleados?serverTimezone=UTC"/>
+            <!-- Especificar el nombre de usuario de la base de datos MySQL -->
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <!-- Especificar el controlador JDBC de MySQL -->
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <!-- Especificar la contraseña de la base de datos MySQL -->
+            <property name="javax.persistence.jdbc.password" value=""/>
+            <!-- Especificar la acción a realizar en la base de datos, "create" significa crear tablas si no existen -->
+            <property name="javax.persistence.schema-generation.database.action" value="create"/>
+        </properties>
+    </persistence-unit>
+</persistence>
